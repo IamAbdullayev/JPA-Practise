@@ -5,6 +5,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.time.LocalDateTime;
+
 
 @Entity
 @Table(name = "students")
@@ -16,17 +18,20 @@ public class Student {
 
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 25, message = "Name should be between 2 and 25")
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
     @NotEmpty(message = "Name should not be empty")
     @Size(min = 2, max = 25, message = "Name should be between 2 and 25")
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false)
     private String surname;
 
     @Min(value = 0, message = "Average grade should not be less 0")
-    @Column(name = "avg_grade")
+    @Column(name = "avg_grade", nullable = false)
     private Double avgGrade;
+
+    @Transient
+    private LocalDateTime data;
 
 
     public Student() {
@@ -36,6 +41,7 @@ public class Student {
         this.name = name;
         this.surname = surname;
         this.avgGrade = avgGrade;
+        this.data = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -68,5 +74,24 @@ public class Student {
 
     public void setAvgGrade(Double avgGrade) {
         this.avgGrade = avgGrade;
+    }
+
+    public LocalDateTime getData() {
+        return data;
+    }
+
+    public void setData(LocalDateTime data) {
+        this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", avgGrade=" + avgGrade +
+                ", data=" + data +
+                '}';
     }
 }
