@@ -2,25 +2,32 @@ package com.abdullayev.apps;
 
 
 import com.abdullayev.apps.dao.CrudJPA;
+import com.abdullayev.apps.dao.HouseDAO;
+import com.abdullayev.apps.entity.House;
 import com.abdullayev.apps.entity.Student;
 
 public class StudentController {
     public static void main(String[] args) {
-        CrudJPA crudJPA = new CrudJPA();
+        HouseDAO houseDAO = new HouseDAO();
 
-        Student student = crudJPA.findByID(1);
+        // New object house
+//        House house = new House("Kopro-house", 6, 280.2);
+        // Insert new object house into the table (Database)
+//        houseDAO.insert(house);
 
+        // Edit the object house
+//        houseDAO.update(null, 3, null, 2);
 
+        // Remove the object house
+//        houseDAO.remove(1);
 
-        // Закрываем ресурсы только после выполнения всех операций
-        crudJPA.closeResources();
+        // Show the object house
+        House house = houseDAO.show(2);
 
-        // Выводим информацию о студенте
-        System.out.println("================================");
-        System.out.println("ID: " + student.getId());
-        System.out.println("Name: " + student.getName());
-        System.out.println("Surname: " + student.getSurname());
-        System.out.println("Average Grade: " + student.getAvgGrade());
-        System.out.println("================================");
+        // Close resources
+        houseDAO.closeResources();
+
+        // Show new object house
+        System.out.println(house);
     }
 }
