@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class CrudJDBC {
+public class CrudStudentJDBC {
     private static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/test_db";
     private static final String DB_USER = "jpauser";
     private static final String DB_PASSWORD = "jpapwd";

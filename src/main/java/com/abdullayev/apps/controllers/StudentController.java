@@ -1,10 +1,8 @@
-package com.abdullayev.apps;
+package com.abdullayev.apps.controllers;
 
 
-import com.abdullayev.apps.dao.CrudJPA;
 import com.abdullayev.apps.dao.HouseDAO;
 import com.abdullayev.apps.entity.House;
-import com.abdullayev.apps.entity.Student;
 
 public class StudentController {
     public static void main(String[] args) {
