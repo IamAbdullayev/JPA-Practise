@@ -4,7 +4,7 @@ import com.abdullayev.apps.entity.Student;
 import jakarta.persistence.*;
 
 
-public class CrudJPA {
+public class CrudStudentJPA {
     EntityManagerFactory factory = Persistence
             .createEntityManagerFactory("jpa-learn");
     EntityManager entityManager = factory.createEntityManager();
