@@ -1,12 +1,9 @@
-package com.abdullayev.apps.controllers;
+package com.abdullayev.apps.others.controllers;
 
-
-import com.abdullayev.apps.dao.HouseDAO;
-import com.abdullayev.apps.entity.House;
 
 public class StudentController {
     public static void main(String[] args) {
-        HouseDAO houseDAO = new HouseDAO();
+//        HouseDAO houseDAO = new HouseDAO();
 
         // New object house
 //        House house = new House("Kopro-house", 6, 280.2);
@@ -20,12 +17,12 @@ public class StudentController {
 //        houseDAO.remove(1);
 
         // Show the object house
-        House house = houseDAO.show(2);
+//        House house = houseDAO.show(2);
 
         // Close resources
-        houseDAO.closeResources();
+//        houseDAO.closeResources();
 
         // Show new object house
-        System.out.println(house);
+//        System.out.println(house);
     }
 }

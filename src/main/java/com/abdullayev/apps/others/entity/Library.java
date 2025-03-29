@@ -1,10 +1,10 @@
-package com.abdullayev.apps.entity;
+package com.abdullayev.apps.others.entity;
 
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "libraries")
+//@Entity
+//@Table(name = "libraries")
 public class Library {
 
     @Id
@@ -17,6 +17,9 @@ public class Library {
 
     @Column(name = "address")
     private String address;
+
+    @OneToOne(mappedBy = "library", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private Book book;
 
     public Library() {}
 
@@ -49,12 +52,21 @@ public class Library {
         this.address = address;
     }
 
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
     @Override
     public String toString() {
         return "Library{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
+                ", book=" + book.getName() +
                 '}';
     }
 }

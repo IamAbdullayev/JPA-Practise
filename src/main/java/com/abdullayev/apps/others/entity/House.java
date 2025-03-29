@@ -1,4 +1,4 @@
-package com.abdullayev.apps.entity;
+package com.abdullayev.apps.others.entity;
 
 
 import jakarta.persistence.*;
@@ -6,8 +6,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 
-@Entity
-@Table(name = "houses_in_baku")
+//@Entity
+//@Table(name = "houses_in_baku")
 public class House {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
