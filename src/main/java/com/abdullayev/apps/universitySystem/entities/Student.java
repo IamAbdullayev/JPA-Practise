@@ -80,7 +80,6 @@ public class Student {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", avgGrade=" + avgGrade +
-                ", university=" + university.getName() +
                 '}';
     }
 }
