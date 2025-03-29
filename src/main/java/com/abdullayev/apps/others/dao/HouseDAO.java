@@ -1,21 +1,20 @@
-package com.abdullayev.apps.dao;
+package com.abdullayev.apps.others.dao;
 
-import com.abdullayev.apps.entity.Student;
+import com.abdullayev.apps.others.entity.House;
 import jakarta.persistence.*;
 
-
-public class CrudStudentJPA {
+public class HouseDAO {
     EntityManagerFactory factory = Persistence
             .createEntityManagerFactory("jpa-learn");
     EntityManager entityManager = factory.createEntityManager();
     EntityTransaction transaction = entityManager.getTransaction();
 
 
-    public void insertToBD(Student student) {
+    public void insert(House newHouse) {
         try {
             transaction.begin();
-            entityManager.persist(student);
-            transaction.commit(); // Коммитит в БД новый объект
+            entityManager.persist(newHouse);
+            transaction.commit();
         } catch (Exception e) {
             if (transaction != null && transaction.isActive()) {
                 transaction.rollback();
@@ -24,29 +23,28 @@ public class CrudStudentJPA {
         }
     }
 
-    public Student findByID(int id) {
-        Student student = null;
+    public House show(int id) {
+        House house = null;
         try {
-            student = entityManager.find(Student.class, id);
+            house = entityManager.find(House.class, id);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return student;
+        return house;
     }
 
-    public void update(String name, String surname, Double avgGrade, int id) {
-        Student student = null;
+    public void update(String houseName, Integer numberOfRooms, Double houseArea, int id) {
         try {
             transaction.begin();
-            student = entityManager.find(Student.class, id);
-            if (name != null) {
-                student.setName(name);
+            House house = entityManager.find(House.class, id);
+            if (houseName != null) {
+                house.setHouseName(houseName);
             }
-            if (surname != null) {
-                student.setSurname(surname);
+            if (numberOfRooms != null) {
+                house.setNumberOfRooms(numberOfRooms);
             }
-            if (avgGrade != null) {
-                student.setAvgGrade(avgGrade);
+            if (houseArea != null) {
+                house.setHouseArea(houseArea);
             }
             transaction.commit(); // Обеспечивает синхронизацию между объектом java приложения и строкой таблицы
                                   // Изменил объект - изменится и соответсвующая строка в таблице - и наоборот
@@ -61,11 +59,11 @@ public class CrudStudentJPA {
     public void remove(int id) {
         try {
             transaction.begin();
-            Student student = entityManager.find(Student.class, id);
-            entityManager.remove(student);
+            House house = entityManager.find(House.class, id);
+            entityManager.remove(house);
             transaction.commit();
         } catch (Exception e) {
-            if (transaction != null && transaction.isActive()) {
+            if (transaction != null) {
                 transaction.rollback();
             }
             throw new RuntimeException(e);
@@ -74,12 +72,11 @@ public class CrudStudentJPA {
 
 
     public void closeResources() {
-        if (entityManager != null) {
-            entityManager.close();
-        }
         if (factory != null) {
             factory.close();
         }
+        if (entityManager != null) {
+            entityManager.close();
+        }
     }
-
 }

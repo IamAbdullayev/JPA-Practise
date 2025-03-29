@@ -1,10 +1,10 @@
-package com.abdullayev.apps.entity;
+package com.abdullayev.apps.others.entity;
 
 
 import jakarta.persistence.*;
 
-@Entity
-@Table(name = "books")
+//@Entity
+//@Table(name = "books")
 public class Book {
 
     @Id
@@ -21,17 +21,16 @@ public class Book {
     @Column(name = "year")
     private int year;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "library_id")
     private Library library;
 
     public Book() {}
 
-    public Book(String name, String author, int year, Library library) {
+    public Book(String name, String author, int year) {
         this.name = name;
         this.author = author;
         this.year = year;
-        this.library = library;
     }
 
     public Long getId() {

@@ -1,6 +1,6 @@
-package com.abdullayev.apps.dao;
+package com.abdullayev.apps.others.dao;
 
-import com.abdullayev.apps.entity.Student;
+import com.abdullayev.apps.others.entity.Student;
 
 import java.sql.*;
 import java.util.ArrayList;

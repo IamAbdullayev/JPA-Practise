@@ -1,6 +1,6 @@
-package com.abdullayev.apps.dao;
+package com.abdullayev.apps.others.dao;
 
-import com.abdullayev.apps.entity.Library;
+import com.abdullayev.apps.others.entity.Library;
 import jakarta.persistence.*;
 
 
