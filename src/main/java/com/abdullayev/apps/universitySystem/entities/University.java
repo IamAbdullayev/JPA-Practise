@@ -6,26 +6,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Entity
-@Table(name = "university")
-@SqlResultSetMapping(
-        name = "UniversityMapping",
-        entities = @EntityResult(entityClass = University.class)
-)
-@NamedNativeQueries(
-        {
-                @NamedNativeQuery(
-                        name = "selectWithId",
-                        query = "SELECT * FROM university WHERE university.id = ?1",
-                        resultSetMapping = "UniversityMapping"
-                ),
-                @NamedNativeQuery(
-                        name = "selectWithName",
-                        query = "SELECT * FROM university WHERE university.name = ?1",
-                        resultSetMapping = "UniversityMapping"
-                )
-        }
-)
+//@Entity
+//@Table(name = "university")
+//@SqlResultSetMapping(
+//        name = "UniversityMapping",
+//        entities = @EntityResult(entityClass = University.class)
+//)
+//@NamedNativeQueries(
+//        {
+//                @NamedNativeQuery(
+//                        name = "selectWithId",
+//                        query = "SELECT * FROM university WHERE university.id = ?1",
+//                        resultSetMapping = "UniversityMapping"
+//                ),
+//                @NamedNativeQuery(
+//                        name = "selectWithName",
+//                        query = "SELECT * FROM university WHERE university.name = ?1",
+//                        resultSetMapping = "UniversityMapping"
+//                )
+//        }
+//)
 public class University {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
