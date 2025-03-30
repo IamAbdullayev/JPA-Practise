@@ -2,6 +2,7 @@ package com.abdullayev.apps.advancedMapping.controllers;
 
 import com.abdullayev.apps.advancedMapping.entities.Address;
 import com.abdullayev.apps.advancedMapping.entities.Employee;
+import com.abdullayev.apps.advancedMapping.entities.Friend;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.EntityTransaction;
@@ -20,11 +21,14 @@ public class EmployeeController {
             if (!transaction.isActive()) {
                 transaction.begin();
             }
+            Friend friend1 = new Friend("Misha", "Nikolai", 21);
+            Friend friend2 = new Friend("Lola", "Denis", 19);
+            Friend friend3 = new Friend("Sara", "Polina", 37);
 
-            List<String> friends = new ArrayList<>();
-            friends.add("Perla");
-            friends.add("Linda");
-            friends.add("Donni");
+            List<Friend> friends = new ArrayList<>();
+            friends.add(friend1);
+            friends.add(friend2);
+            friends.add(friend3);
 
             Address address = new Address("7th school", "Golden Road");
 
